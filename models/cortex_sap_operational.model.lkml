@@ -9,7 +9,7 @@ include: "/views/**/*.view"
 
 datagroup: cortex_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
-  max_cache_age: "1 hour"
+  max_cache_age: "2 hour"
 }
 
 persist_with: cortex_default_datagroup
@@ -255,7 +255,7 @@ explore: inventory_metrics_overview {
     type: left_outer
     relationship: many_to_one
     fields: [inventory_by_plant.stock_characteristic]
-    sql_on: ${inventory_by_plant.client_mandt} = ${inventory_metrics_overview.client_mandt} 
+    sql_on: ${inventory_by_plant.client_mandt} = ${inventory_metrics_overview.client_mandt}
       and ${inventory_by_plant.company_code_bukrs} = ${inventory_metrics_overview.company_code_bukrs}
     ;;
   }
